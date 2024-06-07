@@ -1,0 +1,9 @@
+def solve_recurrence(n):
+    if n == 1:
+        return 1
+    else:
+        return 2 * solve_recurrence(n // 2) + n
+
+# Test the function
+n = 8
+print(f"Solve Recurrence for {n}: {solve_recurrence(n)}")
