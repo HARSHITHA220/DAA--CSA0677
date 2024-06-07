@@ -1,0 +1,15 @@
+from collections import Counter
+
+def intersection(nums1, nums2):
+    counts1 = Counter(nums1)
+    counts2 = Counter(nums2)
+    result = []
+    for num in counts1:
+        if num in counts2:
+            result.extend([num] * min(counts1[num], counts2[num]))
+    return result
+
+# Test the function
+nums1 = [1, 2, 2, 1]
+nums2 = [2, 2]
+print(f"Intersection of {nums1} and {nums2}: {intersection(nums1, nums2)}")
