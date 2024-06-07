@@ -1,0 +1,18 @@
+# Non-Recursive Fibonacci
+def iterative_fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+    return a
+
+# Recursive Fibonacci
+def recursive_fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return recursive_fibonacci(n-1) + recursive_fibonacci(n-2)
+
+# Test the functions
+n = 10
+print(f"Iterative Fibonacci of {n}: {iterative_fibonacci(n)}")
+print(f"Recursive Fibonacci of {n}: {recursive_fibonacci(n)}")
