@@ -1,0 +1,7 @@
+def intersection_unique(nums1, nums2):
+    return list(set(nums1) & set(nums2))
+
+# Test the function
+nums1 = [1, 2, 2, 1]
+nums2 = [2, 2]
+print(f"Intersection (unique) of {nums1} and {nums2}: {intersection_unique(nums1, nums2)}")
