@@ -1,0 +1,15 @@
+def sort_array_by_parity_index(nums):
+    odd, even = 1, 0
+    result = [0] * len(nums)
+    for num in nums:
+        if num % 2 == 0:
+            result[even] = num
+            even += 2
+        else:
+            result[odd] = num
+            odd += 2
+    return result
+
+# Test the function
+nums = [4, 2, 5, 7]
+print(f"Sorted by parity index: {sort_array_by_parity_index(nums)}")
