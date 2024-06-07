@@ -1,0 +1,11 @@
+def iteration_method(n):
+    T = 0
+    i = n
+    while i > 1:
+        T += i
+        i //= 2
+    return T
+
+# Test the function
+n = 8
+print(f"Iteration Method for {n}: {iteration_method(n)}")
