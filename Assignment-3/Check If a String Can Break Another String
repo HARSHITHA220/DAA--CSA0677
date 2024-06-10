@@ -1,0 +1,18 @@
+def checkIfCanBreak(s1: str, s2: str) -> bool:
+    count1 = [0] * 26
+    count2 = [0] * 26
+    
+    for c1, c2 in zip(s1, s2):
+        count1[ord(c1) - ord('a')] += 1
+        count2[ord(c2) - ord('a')] += 1
+    
+    can_break_s2 = True
+    can_break_s1 = True
+    
+    for i in range(26):
+        if count1[i] < count2[i]:
+            can_break_s2 = False
+        if count2[i] < count1[i]:
+            can_break_s1 = False
+    
+    return can_break_s1 or can_break_s2
