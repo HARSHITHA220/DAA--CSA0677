@@ -1,0 +1,19 @@
+from collections import OrderedDict, deque
+
+class FirstUnique:
+
+    def __init__(self, nums: List[int]):
+        self.queue = deque(nums)
+        self.count = OrderedDict()
+        for num in nums:
+            self.count[num] = self.count.get(num, 0) + 1
+
+    def showFirstUnique(self) -> int:
+        while self.queue and self.count[self.queue[0]] > 1:
+            self.queue.popleft()
+        return self.queue[0] if self.queue else -1
+
+    def add(self, value: int) -> None:
+        self.count[value] = self.count.get(value, 0) + 1
+        if value not in self.queue:
+            self.queue.append(value)
