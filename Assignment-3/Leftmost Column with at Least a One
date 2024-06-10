@@ -1,0 +1,15 @@
+class Solution:
+    def leftMostColumnWithOne(self, binaryMatrix):
+        rows, cols = binaryMatrix.dimensions()
+        low, high = 0, cols - 1
+        res = -1
+        
+        while low < rows and high >= 0:
+            mid = high
+            if binaryMatrix.get(low, mid) == 1:
+                res = mid
+                high = mid - 1
+            else:
+                low += 1
+        
+        return res
