@@ -1,0 +1,30 @@
+def find_unique_difference_string(words):
+    def get_difference_array(word):
+        return [ord(word[i + 1]) - ord(word[i]) for i in range(len(word) - 1)]
+    
+    # Calculate difference arrays for all words
+    difference_arrays = [get_difference_array(word) for word in words]
+    
+    # Dictionary to count the frequency of each difference array
+    diff_count = {}
+    for diff in difference_arrays:
+        diff_tuple = tuple(diff)
+        if diff_tuple in diff_count:
+            diff_count[diff_tuple] += 1
+        else:
+            diff_count[diff_tuple] = 1
+            
+    # Identify the majority difference array
+    majority_diff_array = max(diff_count, key=diff_count.get)
+    
+    # Find and return the string with the unique difference array
+    for i, diff in enumerate(difference_arrays):
+        if tuple(diff) != majority_diff_array:
+            return words[i]
+
+# Test cases
+words1 = ["adc","wzy","abc"]
+words2 = ["aaa","bob","ccc","ddd"]
+
+print(find_unique_difference_string(words1))  # Output: "abc"
+print(find_unique_difference_string(words2))  # Output: "bob"
