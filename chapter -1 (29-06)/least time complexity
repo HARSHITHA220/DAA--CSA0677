@@ -1,0 +1,24 @@
+def most_frequent_element(nums):
+    # Use a dictionary to count the frequency of each element
+    frequency = {}
+    
+    for num in nums:
+        if num in frequency:
+            frequency[num] += 1
+        else:
+            frequency[num] = 1
+    
+    # Find the element with the maximum frequency
+    max_frequency = -1
+    most_frequent = None
+    
+    for num, freq in frequency.items():
+        if freq > max_frequency:
+            max_frequency = freq
+            most_frequent = num
+    
+    return most_frequent
+
+# Example usage:
+print(most_frequent_element([1, 2, 3, 4, 5]))  # Output: 5
+print(most_frequent_element([7, 7, 7, 7, 7]))  # Output: 7
