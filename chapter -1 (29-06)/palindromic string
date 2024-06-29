@@ -1,0 +1,9 @@
+def first_palindromic_string(words):
+    for word in words:
+        if word == word[::-1]:  # Check if the string is the same when reversed
+            return word
+    return ""
+
+# Example usage:
+words = ["abc", "car", "ada", "racecar", "cool"]
+print(first_palindromic_string(words))  # Output: "ada"
